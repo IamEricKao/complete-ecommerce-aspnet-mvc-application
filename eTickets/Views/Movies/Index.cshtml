@@ -29,7 +29,7 @@
                             <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
                             <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("yyyy/MM/dd")</p>
                             <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("yyyy/MM/dd")</p>
-                            <p class="card-text ">
+                            <p class="card-text">
                                 <b>Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                 {
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="card-footer ">
+                        <div class="card-footer">
                             <p class="card-text">
                                 <a class="btn btn-outline-primary float-right">
                                     <i class="bi bi-eye-fill"></i>
