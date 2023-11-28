@@ -1,5 +1,6 @@
 ﻿using eTickets.Data;
 using eTickets.Data.Services;
+using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,12 +23,6 @@ namespace eTickets.Controllers
         {
             var allActors = await _service.GetAll();
             return View(allActors);
-        }
-
-        //Get: Actors/Create
-        public IActionResult Create()
-        {
-            return View();
         }
     }
 }

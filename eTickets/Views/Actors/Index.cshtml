@@ -5,7 +5,7 @@
 }
 
 <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-8 offset-2">
         <table class="table">
             <thead class="text-center">
                 <tr>
@@ -25,7 +25,7 @@
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.FullName)
                         </td>
-                        <td class="align-middle">
+                        <td class="col-md-4 align-middle">
                             @Html.DisplayFor(modelItem => item.Bio)
                         </td>
                         <td class="align-middle">
@@ -41,5 +41,5 @@
 </div>
 
 <div style="position:fixed; right:25px; bottom:25px" class="text-white">
-    <a asp-controller="Actors" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>  Add New</a>
+    <a asp-controller="Actors" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>  新增</a>
 </div>
