@@ -24,5 +24,22 @@ namespace eTickets.Controllers
             var allActors = await _service.GetAll();
             return View(allActors);
         }
+
+        //Get: Actors/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("ProfilePictureURL,FullName,Bio")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            _service.Add(actor);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
