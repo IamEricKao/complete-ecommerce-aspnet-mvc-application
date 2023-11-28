@@ -46,8 +46,26 @@ namespace eTickets.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var actorDetail = await _service.GetByIdAsync(id);
-            if (actorDetail == null) return View("Empty");
+            if (actorDetail == null) return View("NotFound");
             return View(actorDetail);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var actorDetail = await _service.GetByIdAsync(id);
+            if (actorDetail == null) return View("NotFound");
+            return View(actorDetail);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureURL,FullName,Bio")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            await _service.UpdateAsync(id, actor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
