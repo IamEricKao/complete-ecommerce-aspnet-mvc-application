@@ -9,13 +9,6 @@ namespace eTickets.Data.Services
 {
     public class ActorsService : IActorsService
     {
-        private readonly AppDbContext _context;
-
-        public ActorsService(AppDbContext context)
-        {
-            _context = context;
-        }
-
         public async Task AddAsync(Actor actor)
         {
             await _context.AddAsync(actor);
