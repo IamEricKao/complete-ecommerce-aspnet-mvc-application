@@ -18,7 +18,7 @@ namespace eTickets.Models
 
         [Display(Name = "姓名")]
         [Required(ErrorMessage = "姓名必填")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "姓名長度要介於 3 到 50 個字之間")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "姓名長度要介於 3 到 10 個字之間")]
         public string FullName { get; set; }
 
         [Display(Name = "介紹")]

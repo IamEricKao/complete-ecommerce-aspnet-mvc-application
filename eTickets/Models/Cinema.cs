@@ -13,12 +13,16 @@ namespace eTickets.Models
         public int Id { get; set; }
 
         [Display(Name = "商標")]
+        [Required(ErrorMessage = "商標不可空白")]
         public string Logo { get; set; }
 
         [Display(Name = "名稱")]
+        [Required(ErrorMessage = "名稱必填")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "名稱長度必須介於 3 到 10個字之間")]
         public string Name { get; set; }
 
         [Display(Name = "簡介")]
+        [Required(ErrorMessage = "名稱必填")]
         public string Description { get; set; }
 
         //Relationships
