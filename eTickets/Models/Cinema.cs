@@ -22,7 +22,7 @@ namespace eTickets.Models
         public string Name { get; set; }
 
         [Display(Name = "簡介")]
-        [Required(ErrorMessage = "名稱必填")]
+        [Required(ErrorMessage = "簡介必填")]
         public string Description { get; set; }
 
         //Relationships
