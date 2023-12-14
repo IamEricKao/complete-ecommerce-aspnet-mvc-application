@@ -146,7 +146,7 @@ namespace eTickets.Data
                             EndDate = DateTime.Now.AddDays(10),
                             CinemaId = 3,
                             ProducerId = 3,
-                            MovieCategory = MovieCategory.Documentary
+                            MovieCategory = MovieCategory.文藝片
                         },
                         new Movie()
                         {
@@ -158,7 +158,7 @@ namespace eTickets.Data
                             EndDate = DateTime.Now.AddDays(3),
                             CinemaId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Action
+                            MovieCategory = MovieCategory.動作片
                         },
                         new Movie()
                         {
@@ -170,7 +170,7 @@ namespace eTickets.Data
                             EndDate = DateTime.Now.AddDays(7),
                             CinemaId = 4,
                             ProducerId = 4,
-                            MovieCategory = MovieCategory.Horror
+                            MovieCategory = MovieCategory.恐怖片
                         },
                         new Movie()
                         {
@@ -182,7 +182,7 @@ namespace eTickets.Data
                             EndDate = DateTime.Now.AddDays(-5),
                             CinemaId = 1,
                             ProducerId = 2,
-                            MovieCategory = MovieCategory.Documentary
+                            MovieCategory = MovieCategory.文藝片
                         },
                         new Movie()
                         {
@@ -194,7 +194,7 @@ namespace eTickets.Data
                             EndDate = DateTime.Now.AddDays(-2),
                             CinemaId = 1,
                             ProducerId = 3,
-                            MovieCategory = MovieCategory.Cartoon
+                            MovieCategory = MovieCategory.動畫片
                         },
                         new Movie()
                         {
@@ -206,7 +206,7 @@ namespace eTickets.Data
                             EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 1,
                             ProducerId = 5,
-                            MovieCategory = MovieCategory.Drama
+                            MovieCategory = MovieCategory.劇情片
                         }
                     });
                 context.SaveChanges();

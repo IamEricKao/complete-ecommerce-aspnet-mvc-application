@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Movie>
 
 @{
-    ViewData["Title"] = "List of Movies";
+    ViewData["Title"] = "首頁";
 }
 
 <div class="row">
@@ -25,23 +25,31 @@
                     <div class="col-md-6">
                         <div class="card-body">
                             <p class="card-text">@item.Description</p>
-                            <p class="card-text"><b>Cinema: </b>@item.Cinema.Name</p>
-                            <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("yyyy/MM/dd")</p>
-                            <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("yyyy/MM/dd")</p>
                             <p class="card-text">
-                                <b>Status: </b>
+                                <b>電影院: </b>@item.Cinema.Name
+                            </p>
+                            <p class="card-text">
+                                <b>種類: </b>@item.MovieCategory
+                            </p>
+                            <p class="card-text">
+                                <b>上映時間: </b>@item.StartDate.ToString("yyyy/MM/dd")
+                            </p>
+                            <p class="card-text">
+                                <b>下檔時間: </b>@item.EndDate.ToString("yyyy/MM/dd")
+                            </p>
+                            <p class="card-text">
+                                <b>狀態: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                 {
-                                    <span class="badge bg-success text-white">AVAILABLE</span>
+                                    <span class="badge bg-success text-white">熱映中</span>
                                 }
                                 else if (DateTime.Now > item.EndDate)
                                 {
-                                    <span class="badge bg-danger text-white">EXPIRED</span>
+                                    <span class="badge bg-danger text-white">下檔</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-primary text-white">UPCOMING</span>
+                                    <span class="badge bg-primary text-white">即將上映</span>
                                 }
                             </p>
                         </div>
@@ -49,12 +57,12 @@
                     <div class="col-md-12">
                         <div class="card-footer">
                             <p class="card-text">
-                                <a class="btn btn-outline-primary float-right">
+                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i>
-                                    Show Detail
+                                    內容
                                 </a>
                                 <a class="btn btn-success text-white">
-                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("C"))
+                                    <i class="bi bi-cart-plus"></i> 加入購物車 (@item.Price.ToString("C"))
                                 </a>
                             </p>
                         </div>

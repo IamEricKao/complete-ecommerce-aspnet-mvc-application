@@ -28,5 +28,13 @@ namespace eTickets.Controllers
             //    .ToListAsync();
             return View(allMovies);
         }
+
+        //GET:Movies/Details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var movieDetail = await _service.GetMovieByIdAsync(id);
+            if (movieDetail == null) return View();
+            return View(movieDetail);
+        }
     }
 }

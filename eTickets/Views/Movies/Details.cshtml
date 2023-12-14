@@ -1,0 +1,95 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "電影內容";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.Name
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.ImageURL" width="100%" alt="@Model.Name">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Description</p>
+                        <p class="card-text">
+                            <b>電影院: </b>
+                            <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.CinemaId">
+                                @Model.Cinema.Name
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>製作人: </b>
+                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId">
+                                @Model.Producer.FullName
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>種類: </b>@Model.MovieCategory
+                        </p>
+                        <p class="card-text">
+                            <b>上映時間: </b>@Model.StartDate.ToString("yyyy/MM/dd")
+                        </p>
+                        <p class="card-text">
+                            <b>下檔時間: </b>@Model.EndDate.ToString("yyyy/MM/dd")
+                        </p>
+                        <p class="card-text">
+                            <b>狀態: </b>
+                            @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
+                            {
+                                <span class="badge bg-success text-white">熱映中</span>
+                            }
+                            else if (DateTime.Now > Model.EndDate)
+                            {
+                                <span class="badge bg-danger text-white">下檔</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-primary text-white">即將上映</span>
+                            }
+                        </p>
+                        <p class="card-text">
+                            <b>演員名單: </b>
+                            <hr />
+                            <div class="row">
+                                @foreach (var actor in Model.Actors_Movies)
+                                {
+                                    <div class="col text-center">
+                                        <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-width: 150px" />
+                                        <br />
+                                        <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">
+                                            @actor.Actor.FullName
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                首頁
+                            </a>
+                            <a class="btn btn-success text-white">
+                                <i class="bi bi-cart-plus"></i> 加入購物車 (@Model.Price.ToString("C"))
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
