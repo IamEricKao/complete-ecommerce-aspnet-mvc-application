@@ -1,7 +1,7 @@
 ﻿@model Movie
 
 @{
-    ViewData["Title"] = "電影內容";
+    ViewData["Title"] = "電影";
 }
 
 <div class="row">
@@ -22,7 +22,9 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <p class="card-text">@Model.Description</p>
+                        <p class="card-text">
+                            @Model.Description
+                        </p>
                         <p class="card-text">
                             <b>電影院: </b>
                             <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.CinemaId">

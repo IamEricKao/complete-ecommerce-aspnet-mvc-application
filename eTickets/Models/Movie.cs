@@ -14,21 +14,20 @@ namespace eTickets.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "名稱")]
         public string Name { get; set; }
 
-        [Display(Name = "簡介")]
+        [Display(Name = "介紹")]
         public string Description { get; set; }
 
-        [Display(Name = "價錢")]
+        [Display(Name = "價錢：")]
         public double Price { get; set; }
 
         public string ImageURL { get; set; }
 
-        [Display(Name = "上映時間")]
+        [Display(Name = "上映日期：")]
         public DateTime StartDate { get; set; }
 
-        [Display(Name = "下檔時間")]
+        [Display(Name = "下檔日期：")]
         public DateTime EndDate { get; set; }
 
         public MovieCategory MovieCategory { get; set; }

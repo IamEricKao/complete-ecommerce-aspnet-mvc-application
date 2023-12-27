@@ -36,5 +36,10 @@ namespace eTickets.Controllers
             if (movieDetail == null) return View();
             return View(movieDetail);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
