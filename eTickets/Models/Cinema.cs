@@ -12,7 +12,7 @@ namespace eTickets.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "商標")]
+        [Display(Name = "圖片")]
         [Required(ErrorMessage = "商標不可空白")]
         public string Logo { get; set; }
 
