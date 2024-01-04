@@ -57,7 +57,8 @@
                     <div class="col-md-12">
                         <div class="card-footer">
                             <p class="card-text">
-                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
+                                <a class="btn btn-outline-primary float-right" asp-action="Details"
+                                   asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i>
                                     內容
                                 </a>
@@ -72,4 +73,4 @@
         </div>
     }
 </div>
-@await Html.PartialAsync("_CreateItem", "Movies");
+@await Html.PartialAsync("_CreateItem", "Movies")

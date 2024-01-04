@@ -50,7 +50,6 @@
                             <label asp-for="CinemaId" class="control-label"></label>
                             <select asp-for="CinemaId" class="form-control"
                                     asp-items="ViewBag.Cinemas">
-                                <option>請選擇</option>
                             </select>
                             <span asp-validation-for="CinemaId" class="text-danger"></span>
                         </div>
@@ -58,7 +57,6 @@
                             <label asp-for="MovieCategory" class="control-label"></label>
                             <select asp-for="MovieCategory" class="form-control"
                                     asp-items="Html.GetEnumSelectList<MovieCategory>()">
-                                <option>請選擇</option>
                             </select>
                             <span asp-validation-for="MovieCategory" class="text-danger"></span>
                         </div>
@@ -66,7 +64,6 @@
                             <label asp-for="ProducerId" class="control-label"></label>
                             <select asp-for="ProducerId" class="form-control"
                                     asp-items="ViewBag.Producers">
-                                <option>請選擇</option>
                             </select>
                             <span asp-validation-for="ProducerId" class="text-danger"></span>
                         </div>
