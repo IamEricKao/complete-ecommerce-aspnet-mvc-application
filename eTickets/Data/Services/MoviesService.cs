@@ -16,25 +16,25 @@ namespace eTickets.Data.Services
             _context = context;
         }
 
-        public async Task AddNewMovieAsync(NewMovieVM movie)
+        public async Task AddNewMovieAsync(NewMovieVM movieData)
         {
             var newMovie = new Movie()
             {
-                Name = movie.Name,
-                Description = movie.Description,
-                Price = movie.Price,
-                ImageURL = movie.ImageURL,
-                StartDate = movie.StartDate,
-                EndDate = movie.EndDate,
-                MovieCategory = movie.MovieCategory,
-                CinemaId = movie.CinemaId,
-                ProducerId = movie.ProducerId
+                Name = movieData.Name,
+                Description = movieData.Description,
+                Price = movieData.Price,
+                ImageURL = movieData.ImageURL,
+                StartDate = movieData.StartDate,
+                EndDate = movieData.EndDate,
+                MovieCategory = movieData.MovieCategory,
+                CinemaId = movieData.CinemaId,
+                ProducerId = movieData.ProducerId
             };
             await _context.Movies.AddAsync(newMovie);
             await _context.SaveChangesAsync();
 
             //Add Movie Actor
-            foreach (var actorId in movie.ActorIds)
+            foreach (var actorId in movieData.ActorIds)
             {
                 var newActorMovie = new Actor_Movie()
                 {
@@ -70,6 +70,43 @@ namespace eTickets.Data.Services
             };
 
             return response;
+        }
+
+        public async Task UpdateMovieAsync(NewMovieVM movieData)
+        {
+            var dbMovie = await _context.Movies
+                .Where(m => m.Id == movieData.Id)
+                .FirstOrDefaultAsync();
+            if (dbMovie != null)
+            {
+                dbMovie.Name = movieData.Name;
+                dbMovie.Description = movieData.Description;
+                dbMovie.Price = movieData.Price;
+                dbMovie.ImageURL = movieData.ImageURL;
+                dbMovie.StartDate = movieData.StartDate;
+                dbMovie.EndDate = movieData.EndDate;
+                dbMovie.MovieCategory = movieData.MovieCategory;
+                dbMovie.CinemaId = movieData.CinemaId;
+                dbMovie.ProducerId = movieData.ProducerId;
+
+                await _context.SaveChangesAsync();
+            };
+            //Remove existing Actors
+            var dbExistingActors = await _context.Actors_Movies
+                .Where(m => m.MovieId == movieData.Id)
+                .ToListAsync();
+            _context.Actors_Movies.RemoveRange(dbExistingActors);
+
+            foreach (var actorId in movieData.ActorIds)
+            {
+                var updateActor_Movie = new Actor_Movie()
+                {
+                    MovieId = movieData.Id,
+                    ActorId = actorId
+                };
+                await _context.Actors_Movies.AddAsync(updateActor_Movie);
+            }
+            await _context.SaveChangesAsync();
         }
     }
 }

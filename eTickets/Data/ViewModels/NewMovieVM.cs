@@ -11,6 +11,8 @@ namespace eTickets.Data.ViewModels
 {
     public class NewMovieVM
     {
+        public int Id { get; set; }
+
         [Display(Name = "電影名稱：")]
         [Required(ErrorMessage = "電影名稱必填")]
         public string Name { get; set; }
