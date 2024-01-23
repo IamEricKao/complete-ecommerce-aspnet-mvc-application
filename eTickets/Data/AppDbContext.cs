@@ -28,6 +28,8 @@ namespace eTickets.Data
 
         public DbSet<OrderItem> OrderItems { get; set; }
 
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
