@@ -20,7 +20,7 @@ namespace eTickets.Models
         public string Description { get; set; }
 
         [Display(Name = "價錢：")]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         public string ImageURL { get; set; }
 

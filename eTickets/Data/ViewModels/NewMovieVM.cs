@@ -23,7 +23,7 @@ namespace eTickets.Data.ViewModels
 
         [Display(Name = "價格：")]
         [Required(ErrorMessage = "價格必填")]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [Display(Name = "圖片：")]
         [Required(ErrorMessage = "圖片不得空白")]

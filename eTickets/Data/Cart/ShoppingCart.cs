@@ -68,7 +68,7 @@ namespace eTickets.Data.Cart
                 .ToList());
         }
 
-        public double GetShoppingCartTotal()
+        public decimal GetShoppingCartTotal()
         {
             return _context.ShoppingCartItems
                 .Where(n => n.ShoppingCartId == ShoppingCartId)
