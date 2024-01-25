@@ -53,6 +53,10 @@
                             <i class="bi bi-search"></i>
                         </button>
                     </form>
+
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
                 </div>
             </div>
         </nav>
