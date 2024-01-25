@@ -85,8 +85,9 @@
                             <a class="btn btn-outline-primary float-right" asp-action="Index">
                                 首頁
                             </a>
-                            <a class="btn btn-success text-white">
-                                <i class="bi bi-cart-plus"></i> 加入購物車 (@Model.Price.ToString("C"))
+                            <a class="btn btn-success text-white" asp-controller="Orders"
+                               asp-action="AddItemToCart" asp-route-id="@Model.Id">
+                                <i class="bi bi-cart-plus"></i> 加入購物車 (NT$@Model.Price.ToString("#,##.##"))
                             </a>
                         </p>
                     </div>
