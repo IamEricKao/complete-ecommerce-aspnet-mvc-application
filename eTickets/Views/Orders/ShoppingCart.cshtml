@@ -49,12 +49,13 @@
                 </tr>
             </tfoot>
         </table>
-        <div class="text-center">
-            <div class="btn-group">
-                <a class="btn btn-outline-success" asp-controller="Movies" asp-action="Index">
-                    繼續購買
-                </a>
-            </div>
+        <div class="col-md-12">
+            <a class="btn btn-outline-success" asp-controller="Movies" asp-action="Index">
+                繼續購買
+            </a>
+
+            <a class="btn btn-outline-primary float-right" asp-action="CompleteOrder">
+                結帳
+            </a>
         </div>
     </div>
-</div>
