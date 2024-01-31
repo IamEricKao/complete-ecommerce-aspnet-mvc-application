@@ -28,8 +28,9 @@
                                 @foreach (var item in order.OrderItems)
                                 {
                                     <li>
-                                        <div class="alert alert-info" role="alert">
-                                            <span class="badge bg-success">@item.Amount</span>  [NT$@item.Price.ToString("#,##.##")] - @item.Movie.Name
+                                        <div class="d-flex justify-content-between alert alert-info" role="alert">
+                                            <span>@item.Movie.Name</span>
+                                            <span class="flaot-right"> NT$@item.Price.ToString("#,##.##") &nbsp;&nbsp;&nbsp;&nbsp; 數量: <span class="badge bg-success">@item.Amount</span></span>
                                         </div>
                                     </li>
                                 }
