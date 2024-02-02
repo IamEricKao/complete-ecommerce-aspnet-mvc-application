@@ -46,6 +46,8 @@ namespace eTickets.Data
                 .HasForeignKey(a => a.ActorId);
 
             base.OnModelCreating(modelBuilder);
+
+            //設定decimal
             var decimalProps = modelBuilder.Model
                                             .GetEntityTypes()
                                             .SelectMany(t => t.GetProperties())
