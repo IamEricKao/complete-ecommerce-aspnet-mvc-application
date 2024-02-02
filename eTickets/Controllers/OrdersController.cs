@@ -23,6 +23,7 @@ namespace eTickets.Controllers
             _ordersService = ordersService;
         }
 
+        //查詢訂單
         public async Task<IActionResult> Index()
         {
             var userId = "";
@@ -76,7 +77,7 @@ namespace eTickets.Controllers
             await _ordersService.StoreOrderAsync(items, userId, userEmail);
             await _shoppingCart.ClearShoppingCartAsync();
 
-            return View("OrderCompleted");
+            return View("CompleteOrder");
         }
     }
 }
