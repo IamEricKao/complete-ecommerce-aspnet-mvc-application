@@ -1,5 +1,5 @@
 ﻿using eTickets.Models;
-using eTickets.Views.Static;
+using eTickets.Data.Static;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -339,8 +339,8 @@ namespace eTickets.Data
                 {
                     var newAdminUser = new ApplicationUser()
                     {
-                        FullName = "網站管理者",
-                        UserName = "管理者",
+                        FullName = "Administrator",
+                        UserName = "admin user",
                         Email = adminEmail,
                         EmailConfirmed = true
                     };
@@ -354,12 +354,12 @@ namespace eTickets.Data
                 {
                     var newAppUser = new ApplicationUser()
                     {
-                        FullName = "網站使用者",
-                        UserName = "使用者",
+                        FullName = "Application user",
+                        UserName = "app user",
                         Email = appUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAppUser);
+                    await userManager.CreateAsync(newAppUser, "Coding@1234?");
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 }
             };
