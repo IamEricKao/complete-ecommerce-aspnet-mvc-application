@@ -12,6 +12,12 @@
                 <h4>會員登入</h4>
             </p>
         </div>
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-md-8 offset-2 alert alert-danger">
+                <span> <b>@TempData["Error"]</b> </span>
+            </div>
+        }
         <div class="row">
             <div class="col-md-8 offset-2">
                 <form asp-controller="Account" asp-action="Login">
