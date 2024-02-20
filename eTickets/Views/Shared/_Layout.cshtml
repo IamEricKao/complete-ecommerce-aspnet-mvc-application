@@ -58,10 +58,16 @@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
 
-                    <a asp-controller="Account" asp-action="Login"
+                    <a asp-controller="Accounts" asp-action="Login"
                        class="btn btn-outline-success my-2 my-sm-0">
 
-                        <i class="bi bi-box-arrow-in- right"></i> 登入
+                        <i class="bi bi-box-arrow-in-right"></i> 登入
+                    </a>
+
+                    <a asp-controller="Accounts" asp-action="Register"
+                       class="btn btn-outline-primary my-2 my-sm-0">
+
+                        <i class="bi bi-person-plus"></i> 註冊
                     </a>
 
                     @*會員資料*@

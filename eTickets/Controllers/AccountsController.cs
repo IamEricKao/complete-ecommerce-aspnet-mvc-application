@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace eTickets.Controllers
 {
-    public class AccountController : Controller
+    public class AccountsController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly AppDbContext _context;
 
-        public AccountController(UserManager<ApplicationUser> userManager,
+        public AccountsController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager, AppDbContext context)
         {
             _userManager = userManager;
@@ -54,6 +54,12 @@ namespace eTickets.Controllers
 
             TempData["Error"] = "信箱或密碼錯誤";
             return View(loginVM);
+        }
+
+        public IActionResult Register()
+        {
+            var response = new RegisterVM();
+            return View(response);
         }
     }
 }
