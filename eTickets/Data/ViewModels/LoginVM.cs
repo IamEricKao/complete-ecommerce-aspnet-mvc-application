@@ -8,7 +8,7 @@ namespace eTickets.Data.ViewModels
 {
     public class LoginVM
     {
-        [Required(ErrorMessage = "這不是有效的Email")]
+        [Required(ErrorMessage = "請輸入Email")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "電子郵件")]
         public string EmailAddress { get; set; }
