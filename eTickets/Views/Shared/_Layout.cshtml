@@ -58,6 +58,12 @@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
 
+                    <a asp-controller="Account" asp-action="Login"
+                       class="btn btn-outline-success my-2 my-sm-0">
+
+                        <i class="bi bi-box-arrow-in- right"></i> 登入
+                    </a>
+
                     @*會員資料*@
                     <div class="dropdown">
                         <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn"
