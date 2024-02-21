@@ -18,9 +18,12 @@
                                        asp-action="Details" asp-route-id="@item.Id">
                                         @item.Name
                                     </a>
-                                    <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    {
+                                        <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                    }
                                 </h5>
                             </p>
                         </div>
@@ -77,4 +80,7 @@
         </div>
     }
 </div>
-@await Html.PartialAsync("_CreateItem", "Movies")
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    @await Html.PartialAsync("_CreateItem", "Movies")
+}

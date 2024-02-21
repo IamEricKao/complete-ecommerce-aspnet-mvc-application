@@ -1,4 +1,4 @@
-﻿@inject UserManager<ApplicationUser> userManager;
+﻿@inject UserManager<ApplicationUser> UserManager;
 @if (!User.Identity.IsAuthenticated)
 {
     <a asp-controller="Accounts" asp-action="Login" class="btn btn-outline-success my-2 my-sm-0">
@@ -17,7 +17,7 @@ else
     <div class="dropdown">
         <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn"
                 data-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-file-person"></i> Hello @userManager.GetUserName(User)
+            <i class="bi bi-file-person"></i> Hello @UserManager.GetUserName(User)
         </button>
         <ul class="dropdown-menu" aria-labelledby="profile-btn">
             <li>
