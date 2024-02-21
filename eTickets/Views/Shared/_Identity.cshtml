@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity;
-@inject UserManager<ApplicationUser> userManager;
+﻿@inject UserManager<ApplicationUser> userManager;
 @if (!User.Identity.IsAuthenticated)
 {
     <a asp-controller="Accounts" asp-action="Login" class="btn btn-outline-success my-2 my-sm-0">
