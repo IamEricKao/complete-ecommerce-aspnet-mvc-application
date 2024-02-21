@@ -25,6 +25,8 @@ namespace eTickets.Controllers
             _context = context;
         }
 
+        #region 登入
+
         public IActionResult Login()
         {
             var response = new LoginVM();
@@ -56,6 +58,10 @@ namespace eTickets.Controllers
             TempData["Error"] = "信箱或密碼錯誤";
             return View(loginVM);
         }
+
+        #endregion 登入
+
+        #region 註冊
 
         public IActionResult Register()
         {
@@ -89,5 +95,18 @@ namespace eTickets.Controllers
             }
             return View("RegisterCompleted");
         }
+
+        #endregion 註冊
+
+        #region 登出
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Movies");
+        }
+
+        #endregion 登出
     }
 }
