@@ -4,6 +4,7 @@ using eTickets.Data.ViewModels;
 using eTickets.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,16 @@ namespace eTickets.Controllers
             _signInManager = signInManager;
             _context = context;
         }
+
+        #region 列出所有使用者
+
+        public async Task<IActionResult> Users()
+        {
+            var allUsers = await _context.Users.ToListAsync();
+            return View(allUsers);
+        }
+
+        #endregion 列出所有使用者
 
         #region 登入
 

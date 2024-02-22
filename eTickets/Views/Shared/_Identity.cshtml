@@ -24,6 +24,13 @@ else
                 <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
                     <i class="bi bi-file-earmark-text"></i> 訂單查詢
                 </a>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="dropdown-item" asp-controller="Accounts" asp-action="Users">
+                        <i class="bi bi-people"></i> 會員名單
+                    </a>
+                }
             </li>
         </ul>
     </div>

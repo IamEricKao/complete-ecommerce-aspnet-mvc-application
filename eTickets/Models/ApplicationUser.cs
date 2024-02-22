@@ -11,5 +11,11 @@ namespace eTickets.Models
     {
         [Display(Name = "姓名")]
         public string FullName { get; set; }
+
+        [Display(Name = "暱稱")]
+        public override string UserName { get; set; }
+
+        [Display(Name = "電子郵件")]
+        public override string Email { get; set; }
     }
 }
