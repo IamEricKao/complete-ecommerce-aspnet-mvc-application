@@ -1,13 +1,13 @@
 ﻿@inject UserManager<ApplicationUser> UserManager;
 @if (!User.Identity.IsAuthenticated)
 {
-    <a asp-controller="Accounts" asp-action="Login" class="btn btn-outline-success my-2 my-sm-0">
+    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success my-2 my-sm-0">
         <i class="bi bi-box-arrow-in-right"></i> 登入
     </a>
 
     <span style="padding: 5px"></span>
 
-    <a asp-controller="Accounts" asp-action="Register" class="btn btn-outline-primary my-2 my-sm-0">
+    <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary my-2 my-sm-0">
         <i class="bi bi-person-plus"></i> 註冊
     </a>
 }
@@ -27,7 +27,7 @@ else
 
                 @if (User.IsInRole("Admin"))
                 {
-                    <a class="dropdown-item" asp-controller="Accounts" asp-action="Users">
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
                         <i class="bi bi-people"></i> 會員名單
                     </a>
                 }
@@ -37,7 +37,7 @@ else
 
     <span style="padding: 5px"></span>
 
-    <form asp-controller="Accounts" asp-action="Logout">
+    <form asp-controller="Account" asp-action="Logout">
         <button class="btn btn-outline-danger my-2 my-sm-0">
             <i class="bi bi-box-arrow-right"> 登出 </i>
         </button>

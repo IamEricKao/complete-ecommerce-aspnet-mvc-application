@@ -119,5 +119,14 @@ namespace eTickets.Controllers
         }
 
         #endregion 登出
+
+        #region 禁止進入
+
+        public IActionResult AccessDenied(string ReturnURL)
+        {
+            return View();
+        }
+
+        #endregion 禁止進入
     }
 }
