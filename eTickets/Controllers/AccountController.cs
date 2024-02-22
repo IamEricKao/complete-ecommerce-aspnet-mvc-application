@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace eTickets.Controllers
 {
-    public class AccountsController : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly AppDbContext _context;
 
-        public AccountsController(UserManager<ApplicationUser> userManager,
+        public AccountController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager, AppDbContext context)
         {
             _userManager = userManager;
