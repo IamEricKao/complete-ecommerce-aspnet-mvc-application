@@ -15,7 +15,10 @@
                     <th class="text-center">訂單編號</th>
                     <th class="text-center">商品名稱</th>
                     <th class="text-center">總金額</th>
-                    <th class="text-center">訂購人</th>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <th class="text-center">訂購人</th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +46,10 @@
                         <td class="align-middle text-center">
                             NT$@order.OrderItems.Select(n => n.Price * n.Amount).Sum().ToString("#,##.##")
                         </td>
-                        <td class="align-middle text-center"> - </td>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <td class="align-middle text-center"> @order.User.FullName </td>
+                        }
                     </tr>
                 }
             </tbody>

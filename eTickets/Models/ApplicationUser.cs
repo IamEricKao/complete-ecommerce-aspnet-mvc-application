@@ -9,7 +9,7 @@ namespace eTickets.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        [Display(Name = "姓名: ")]
+        [Display(Name = "姓名")]
         public string FullName { get; set; }
     }
 }

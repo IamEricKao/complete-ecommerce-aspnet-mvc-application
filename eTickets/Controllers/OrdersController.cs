@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace eTickets.Controllers
@@ -26,8 +27,9 @@ namespace eTickets.Controllers
         //查詢訂單
         public async Task<IActionResult> Index()
         {
-            var userId = "";
-            List<Order> orders = await _ordersService.GetOrdersByUserIdAsync(userId);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userRole = User.FindFirstValue(ClaimTypes.Role);
+            List<Order> orders = await _ordersService.GetOrdersByUserIdAndRoleAsync(userId, userRole);
             return View(orders);
         }
 
@@ -71,8 +73,8 @@ namespace eTickets.Controllers
         public async Task<IActionResult> CompleteOrder()
         {
             List<ShoppingCartItem> items = _shoppingCart.GetShoppingCartItems();
-            string userId = "";
-            string userEmail = "";
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userEmail = User.FindFirstValue(ClaimTypes.Email);
 
             await _ordersService.StoreOrderAsync(items, userId, userEmail);
             await _shoppingCart.ClearShoppingCartAsync();
