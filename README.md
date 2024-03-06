@@ -1,0 +1,31 @@
+# 院線e購票
+
+## 功能
+使用者:
+- [x] 註冊
+- [x] 登入&登出
+- [x] 加入購物車 
+- [x] 結帳(使用Paypal)
+- [x] 查詢訂單 
+      
+Paypal測試帳號
+```bash
+帳號:sb-hrmhy29466568@personal.example.com
+密碼:o<F7pX*]
+```
+## 畫面
+###### 首頁
+![首頁](https://raw.githubusercontent.com/IamEricKao/complete-ecommerce-aspnet-mvc-application/master/HomePage.PNG)
+###### 登入
+![登入](https://raw.githubusercontent.com/IamEricKao/complete-ecommerce-aspnet-mvc-application/master/Login.PNG)
+###### 購物車
+![購物車](https://raw.githubusercontent.com/IamEricKao/complete-ecommerce-aspnet-mvc-application/master/Login.PNG)
+## 安裝
+### 取得專案
+```bash
+https://github.com/IamEricKao/complete-ecommerce-aspnet-mvc-application.git
+```
+### 專案技術
+- SQL Server v13.0
+- ASP.NET v5.0
+- Bootstrap v5.1.3
