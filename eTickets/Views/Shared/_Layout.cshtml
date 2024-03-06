@@ -57,11 +57,12 @@
                             <i class="bi bi-search"></i>
                         </button>
                     </form>
-
-                    <ul class="navbar-nav">
-                        @await Component.InvokeAsync("ShoppingCartSummary")
-                    </ul>
-
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <ul class="navbar-nav">
+                            @await Component.InvokeAsync("ShoppingCartSummary")
+                        </ul>
+                    }
                     <partial name="_Identity.cshtml" />
                 </div>
             </div>
