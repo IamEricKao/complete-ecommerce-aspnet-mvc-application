@@ -27,7 +27,7 @@ Paypal測試帳號
 ### 登入
 ![登入](https://raw.githubusercontent.com/IamEricKao/complete-ecommerce-aspnet-mvc-application/master/Login.PNG)
 ### 購物車
-![購物車](https://raw.githubusercontent.com/IamEricKao/complete-ecommerce-aspnet-mvc-application/master/Login.PNG)
+![購物車](https://raw.githubusercontent.com/IamEricKao/complete-ecommerce-aspnet-mvc-application/master/ShoppingCart.PNG)
 ## 安裝
 ### 取得專案
 ```bash
