@@ -85,8 +85,10 @@
                             <a class="btn btn-outline-primary" asp-action="Index">
                                 首頁
                             </a>
-                            <a class="btn btn-success text-white float-right" asp-controller="Orders"
-                               asp-action="AddItemToCart" asp-route-id="@Model.Id">
+                            <a class="btn btn-success text-white float-right @((Model.EndDate < DateTime.Now) ? "disabled" : "" )"
+                               asp-controller="Orders"
+                               asp-action="AddItemToCart"
+                               asp-route-id="@Model.Id">
                                 <i class="bi bi-cart-plus"></i> 加入購物車 (NT$@Model.Price.ToString("#,##.##"))
                             </a>
                         </p>

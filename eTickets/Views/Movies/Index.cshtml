@@ -68,8 +68,10 @@
                     <div class="col-md-12">
                         <div class="card-footer">
                             <p class="card-text">
-                                <a class="btn btn-success text-white float-right" asp-controller="Orders"
-                                   asp-action="AddItemToCart" asp-route-id="@item.Id">
+                                <a class="btn btn-success text-white float-right @((item.EndDate < DateTime.Now) ? "disabled" : "" )"
+                                   asp-controller="Orders"
+                                   asp-action="AddItemToCart"
+                                   asp-route-id="@item.Id">
                                     <i class="bi bi-cart-plus"></i> 加入購物車 (NT$@item.Price.ToString("#,##.##"))
                                 </a>
                             </p>
